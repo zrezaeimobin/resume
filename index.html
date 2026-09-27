@@ -3,40 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Zohair RezaeiMobin, medical and cosmetic treatment interpreter, export sales professional and WordPress specialist in Shiraz.">
+  <meta name="description" content="Zohair RezaeiMobin | Medical & Cosmetic Treatment Interpreter | Export Sales">
   <meta name="author" content="Zohair RezaeiMobin">
   <title>Zohair RezaeiMobin | Medical & Cosmetic Treatment Interpreter</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/plugins.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="img/hero/avatar.png">
+  <link rel="apple-touch-icon" href="img/hero/avatar.png">
   <style>
-    body{font-family:Poppins,"Noto Sans Arabic",sans-serif}
-    html[dir="rtl"] body{text-align:right}
-    .language-switcher{display:flex;gap:8px;align-items:center;margin-left:24px}
-    .language-switcher button{border:1px solid rgba(0,0,0,.12);background:transparent;border-radius:20px;padding:6px 12px;cursor:pointer;font:inherit}
-    .language-switcher button.active{background:#111;color:#fff}
+    :root{--accent:#7c5cff;--accent2:#18b6a4;--ink:#151523;--muted:#6d6b7a;--card:rgba(255,255,255,.82)}
+    html{scroll-behavior:smooth}
+    body{font-family:Manrope,"Noto Sans Arabic",sans-serif;color:var(--ink);background:#fafafd}
+    html[dir=rtl] body{text-align:right;font-family:"Noto Sans Arabic",Manrope,sans-serif}
+    .foliox_tm_all_wrap{overflow:hidden}
+    .foliox_tm_header{backdrop-filter:blur(16px);background:rgba(255,255,255,.78);border-bottom:1px solid rgba(21,21,35,.07)}
+    .foliox_tm_header .inner{min-height:82px}
+    .language-switcher{display:flex;align-items:center;gap:5px;margin-left:22px;padding:4px;border:1px solid rgba(21,21,35,.1);border-radius:999px;background:#fff;box-shadow:0 5px 20px rgba(21,21,35,.07)}
+    html[dir=rtl] .language-switcher{margin-left:0;margin-right:22px}
+    .language-switcher button{border:0;background:transparent;color:#666;padding:7px 12px;border-radius:999px;cursor:pointer;font:600 12px Manrope,"Noto Sans Arabic",sans-serif;transition:.25s}
+    .language-switcher button:hover{color:var(--accent)}
+    .language-switcher button.active{background:var(--ink);color:#fff}
+    .foliox_tm_hero{position:relative}
+    .foliox_tm_hero:before{content:"";position:absolute;width:520px;height:520px;right:-170px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.17),transparent 68%);pointer-events:none}
+    html[dir=rtl] .foliox_tm_hero:before{right:auto;left:-170px}
+    .foliox_tm_hero .content{min-height:650px;align-items:center}
+    .foliox_tm_hero .job{font-weight:700;color:var(--accent);letter-spacing:.01em}
+    .foliox_tm_hero .text{max-width:610px;color:var(--muted);font-size:17px;line-height:1.8}
+    .foliox_tm_hero .right img{width:min(390px,80vw);aspect-ratio:1;object-fit:cover;border:10px solid rgba(255,255,255,.8);box-shadow:0 30px 80px rgba(21,21,35,.18)}
+    .foliox_tm_button a{border-radius:999px!important;box-shadow:0 12px 28px rgba(124,92,255,.2)}
+    .foliox_tm_main_title span{color:var(--accent)}
+    .foliox_tm_main_title h2{font-weight:800}
     .simple-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-    .clean-card{padding:28px;border-radius:16px;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.06)}
-    .contact-links a{display:block;margin:8px 0}
-    @media(max-width:768px){.simple-grid{grid-template-columns:1fr}.language-switcher{margin:12px 0}.foliox_tm_header .inner{flex-wrap:wrap}}
+    .clean-card{position:relative;padding:30px;border:1px solid rgba(21,21,35,.07);border-radius:20px;background:var(--card);box-shadow:0 14px 45px rgba(21,21,35,.06);transition:transform .25s,box-shadow .25s}
+    .clean-card:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;border-radius:20px 0 0 20px;background:linear-gradient(180deg,var(--accent),var(--accent2))}
+    html[dir=rtl] .clean-card:before{inset:0 0 0 auto;border-radius:0 20px 20px 0}
+    .clean-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(21,21,35,.1)}
+    .clean-card h3{margin-bottom:8px}
+    .clean-card>span{display:block;color:var(--accent);font-size:13px;font-weight:700;margin-bottom:14px}
+    .clean-card p{color:var(--muted);line-height:1.8}
+    .foliox_tm_services .list ul{gap:22px}
+    .foliox_tm_services .list_inner{border:1px solid rgba(21,21,35,.06);border-radius:20px;padding:30px;background:#fff;box-shadow:0 12px 40px rgba(21,21,35,.05)}
+    .foliox_tm_services .list_inner .icon{color:var(--accent)}
+    .foliox_tm_contact .contact_inner{padding:30px;border-radius:24px;background:linear-gradient(135deg,rgba(124,92,255,.08),rgba(24,182,164,.08))}
+    .contact-links a{display:block;margin:8px 0;color:var(--ink);font-weight:600}
+    .contact-links a:hover{color:var(--accent)}
+    @media(max-width:900px){.simple-grid{grid-template-columns:1fr}.language-switcher{margin:12px 0}.foliox_tm_header .inner{flex-wrap:wrap}.foliox_tm_hero .content{min-height:560px}}
   </style>
 </head>
 <body>
 <div id="preloader"><div class="loader_line"></div></div>
-
 <div class="foliox_tm_all_wrap" data-magic-cursor="show">
+
   <div class="foliox_tm_mobile_menu">
     <div class="mobile_menu_inner"><div class="mobile_in">
       <div class="logo"><a href="#home"><img src="img/logo/logo.png" alt="Zohair RezaeiMobin"></a></div>
       <div class="trigger"><div class="hamburger hamburger--slider"><div class="hamburger-box"><div class="hamburger-inner"></div></div></div></div>
     </div></div>
     <div class="dropdown"><div class="dropdown_inner"><ul class="anchor_nav">
-      <li><a href="#home" data-i18n="navHome">Home</a></li>
-      <li><a href="#about" data-i18n="navAbout">About</a></li>
-      <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
-      <li><a href="#services" data-i18n="navServices">Services</a></li>
-      <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+      <li><a href="#home" data-i18n="navHome">Home</a></li><li><a href="#about" data-i18n="navAbout">About</a></li><li><a href="#experience" data-i18n="navExperience">Experience</a></li><li><a href="#services" data-i18n="navServices">Services</a></li><li><a href="#contact" data-i18n="navContact">Contact</a></li>
     </ul></div></div>
   </div>
 
@@ -45,17 +70,9 @@
       <div class="logo"><a class="anchor" href="#home"><img src="img/logo/logo.png" alt="Zohair RezaeiMobin"></a></div>
       <div class="details">
         <nav class="menu"><ul class="anchor_nav">
-          <li class="current"><a href="#home" data-i18n="navHome">Home</a></li>
-          <li><a href="#about" data-i18n="navAbout">About</a></li>
-          <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
-          <li><a href="#services" data-i18n="navServices">Services</a></li>
-          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+          <li class="current"><a href="#home" data-i18n="navHome">Home</a></li><li><a href="#about" data-i18n="navAbout">About</a></li><li><a href="#experience" data-i18n="navExperience">Experience</a></li><li><a href="#services" data-i18n="navServices">Services</a></li><li><a href="#contact" data-i18n="navContact">Contact</a></li>
         </ul></nav>
-        <div class="language-switcher" aria-label="Language">
-          <button type="button" data-lang="en" class="active">EN</button>
-          <button type="button" data-lang="ar">عربي</button>
-          <button type="button" data-lang="fa">فارسی</button>
-        </div>
+        <div class="language-switcher" aria-label="Language"><button data-lang="en" class="active">EN</button><button data-lang="ar">عربي</button><button data-lang="fa">فارسی</button></div>
       </div>
     </div></div>
   </header>
@@ -68,127 +85,61 @@
         <p class="text" data-i18n="heroIntro">Shiraz-based professional working with international patients, multilingual communication, WordPress and export sales.</p>
         <div class="foliox_tm_button"><a class="anchor" href="#contact"><span data-i18n="contactMe">Contact Me</span></a></div>
       </div>
-      <div class="right"><img class="tilt-effect" src="img/hero/avatar.png" alt="Zohair RezaeiMobin" style="border-radius:50%"></div>
+      <div class="right"><img class="tilt-effect" src="img/hero/avatar.png" alt="Zohair RezaeiMobin"></div>
     </div></div></div>
   </section>
 
-  <section class="foliox_tm_section" id="about">
-    <div class="foliox_tm_about"><div class="container">
-      <div class="foliox_tm_main_title"><span data-i18n="aboutLabel">About Me</span><h2 data-i18n="aboutTitle">Medical Interpretation, International Sales & Web</h2></div>
-      <div class="wrapper">
-        <div class="left"><div class="big_image"><img class="tilt-effect" src="img/about/1.png" alt="Zohair RezaeiMobin"></div></div>
-        <div class="right">
-          <p class="text" data-i18n="aboutText">I work as a medical and cosmetic treatment interpreter in Shiraz, helping international patients communicate with clinics and medical teams. I also have professional experience in export sales and practical experience with WordPress, websites and digital content.</p>
-          <div class="list"><ul><li><ul class="item">
-            <li><span data-i18n="nameLabel">Name</span><p>Zohair RezaeiMobin</p></li>
-            <li><span data-i18n="locationLabel">Location</span><p data-i18n="location">Shiraz, Iran</p></li>
-          </ul></li><li><ul class="item">
-            <li><span data-i18n="languagesLabel">Languages</span><p data-i18n="languages">Arabic, Persian, English, some German, some Kurdish</p></li>
-            <li><span data-i18n="focusLabel">Focus</span><p data-i18n="focus">Medical & cosmetic interpretation</p></li>
-          </ul></li></ul></div>
-        </div>
+  <section class="foliox_tm_section" id="about"><div class="foliox_tm_about"><div class="container">
+    <div class="foliox_tm_main_title"><span data-i18n="aboutLabel">About Me</span><h2 data-i18n="aboutTitle">Medical Interpretation, International Sales & Web</h2></div>
+    <div class="wrapper">
+      <div class="left"><div class="big_image"><img class="tilt-effect" src="img/about/1.png" alt="Zohair RezaeiMobin"></div></div>
+      <div class="right"><p class="text" data-i18n="aboutText">I work as a medical and cosmetic treatment interpreter in Shiraz, helping international patients communicate with clinics and medical teams. I also have professional experience in export sales and practical experience with WordPress, websites and digital content.</p>
+        <div class="list"><ul><li><ul class="item"><li><span data-i18n="nameLabel">Name</span><p>Zohair RezaeiMobin</p></li><li><span data-i18n="locationLabel">Location</span><p data-i18n="location">Shiraz, Iran</p></li></ul></li><li><ul class="item"><li><span data-i18n="languagesLabel">Languages</span><p data-i18n="languages">Arabic, Persian, English, some German, some Kurdish</p></li><li><span data-i18n="focusLabel">Focus</span><p data-i18n="focus">Medical & cosmetic interpretation</p></li></ul></li></ul></div>
       </div>
-    </div></div>
-  </section>
+    </div>
+  </div></div></section>
 
-  <section class="foliox_tm_section" id="experience">
-    <div class="foliox_tm_resume"><div class="container">
-      <div class="foliox_tm_main_title"><span data-i18n="experienceLabel">Experience</span><h2 data-i18n="experienceTitle">Professional Background</h2></div>
-      <div class="simple-grid">
-        <div class="clean-card">
-          <h3 data-i18n="role1">Medical & Cosmetic Treatment Interpreter</h3>
-          <span>SanaMedTour | 2016 - Present</span>
-          <p data-i18n="role1Text">Arabic, Persian and English interpretation, patient communication and treatment coordination for international patients in Shiraz.</p>
-        </div>
-        <div class="clean-card">
-          <h3 data-i18n="role2">WordPress & Digital Specialist</h3>
-          <span>Freelance / Independent Projects | 2016 - Present</span>
-          <p data-i18n="role2Text">WordPress websites, multilingual content, social media and practical web solutions for service businesses.</p>
-        </div>
-        <div class="clean-card">
-          <h3 data-i18n="role3">Export Sales Manager</h3>
-          <span>Fitallfeed | Previous Experience</span>
-          <p data-i18n="role3Text">Managed export sales and customer development for fish feed, with a focus on the Iraqi market.</p>
-        </div>
-        <div class="clean-card">
-          <h3 data-i18n="education">Education</h3>
-          <span data-i18n="educationPlace">Iran</span>
-          <p data-i18n="educationText">Completed 11-year Iranian secondary education. Professional learning has continued through practical work in web, content and international business.</p>
-        </div>
-      </div>
-    </div></div>
-  </section>
+  <section class="foliox_tm_section" id="experience"><div class="foliox_tm_resume"><div class="container">
+    <div class="foliox_tm_main_title"><span data-i18n="experienceLabel">Experience</span><h2 data-i18n="experienceTitle">Professional Background</h2></div>
+    <div class="simple-grid">
+      <div class="clean-card"><h3 data-i18n="role1">Medical & Cosmetic Treatment Interpreter</h3><span>SanaMedTour | 2016 - Present</span><p data-i18n="role1Text">Arabic, Persian and English interpretation, patient communication and treatment coordination for international patients in Shiraz.</p></div>
+      <div class="clean-card"><h3 data-i18n="role2">WordPress & Digital Specialist</h3><span>Freelance / Independent Projects | 2016 - Present</span><p data-i18n="role2Text">WordPress websites, multilingual content, social media and practical web solutions for service businesses.</p></div>
+      <div class="clean-card"><h3 data-i18n="role3">Export Sales Manager</h3><span>Fitallfeed | Previous Experience</span><p data-i18n="role3Text">Managed export sales and customer development for fish feed, with a focus on the Iraqi market.</p></div>
+      <div class="clean-card"><h3 data-i18n="education">Education</h3><span data-i18n="educationPlace">Iran</span><p data-i18n="educationText">Completed 11-year Iranian secondary education. Professional learning has continued through practical work in web, content and international business.</p></div>
+    </div>
+  </div></div></section>
 
-  <section class="foliox_tm_section" id="services">
-    <div class="foliox_tm_services"><div class="container">
-      <div class="foliox_tm_main_title"><span data-i18n="servicesLabel">Services</span><h2 data-i18n="servicesTitle">What I Do</h2></div>
-      <div class="list"><ul>
-        <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/monitor.svg" alt=""></span><h3 data-i18n="service1">Medical & Cosmetic Interpretation</h3><p data-i18n="service1Text">Arabic, Persian and English interpretation and patient support in Shiraz.</p></div></li>
-        <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/anchor.svg" alt=""></span><h3 data-i18n="service2">Medical Tourism Coordination</h3><p data-i18n="service2Text">Patient communication, appointments and practical coordination around treatment.</p></div></li>
-        <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/bar.svg" alt=""></span><h3 data-i18n="service3">WordPress & Websites</h3><p data-i18n="service3Text">Lightweight websites, WordPress management and multilingual content.</p></div></li>
-        <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/aim.svg" alt=""></span><h3 data-i18n="service4">Export Sales</h3><p data-i18n="service4Text">International sales and customer development, including the Iraqi market.</p></div></li>
-      </ul></div>
-    </div></div>
-  </section>
+  <section class="foliox_tm_section" id="services"><div class="foliox_tm_services"><div class="container">
+    <div class="foliox_tm_main_title"><span data-i18n="servicesLabel">Services</span><h2 data-i18n="servicesTitle">What I Do</h2></div>
+    <div class="list"><ul>
+      <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/monitor.svg" alt=""></span><h3 data-i18n="service1">Medical & Cosmetic Interpretation</h3><p data-i18n="service1Text">Arabic, Persian and English interpretation and patient support in Shiraz.</p></div></li>
+      <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/anchor.svg" alt=""></span><h3 data-i18n="service2">Medical Tourism Coordination</h3><p data-i18n="service2Text">Patient communication, appointments and practical coordination around treatment.</p></div></li>
+      <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/bar.svg" alt=""></span><h3 data-i18n="service3">WordPress & Websites</h3><p data-i18n="service3Text">Lightweight websites, WordPress management and multilingual content.</p></div></li>
+      <li><div class="list_inner tilt-effect"><span class="icon"><img class="svg" src="img/svg/aim.svg" alt=""></span><h3 data-i18n="service4">Export Sales</h3><p data-i18n="service4Text">International sales and customer development, including the Iraqi market.</p></div></li>
+    </ul></div>
+  </div></div></section>
 
-  <section class="foliox_tm_section" id="contact">
-    <div class="foliox_tm_contact"><div class="container">
-      <div class="foliox_tm_main_title"><span data-i18n="contactLabel">Contact</span><h2 data-i18n="contactTitle">Get in Touch</h2></div>
-      <div class="contact_inner"><div class="left"><ul class="contact-links">
-        <li><div class="list_inner"><div class="icon"><i class="icon-location"></i></div><div class="short"><h3 data-i18n="locationLabel2">Location</h3><span data-i18n="location">Shiraz, Iran</span></div></div></li>
-        <li><div class="list_inner"><div class="icon"><i class="icon-mail-1"></i></div><div class="short"><h3>Email</h3><a href="mailto:zrezaeimobin@gmail.com">zrezaeimobin@gmail.com</a></div></div></li>
-        <li><div class="list_inner"><div class="icon"><i class="icon-phone"></i></div><div class="short"><h3 data-i18n="phone">Phone</h3><a href="tel:+989378319583">+98 937 831 9583</a></div></div></li>
-      </ul></div></div>
-    </div></div>
-  </section>
+  <section class="foliox_tm_section" id="contact"><div class="foliox_tm_contact"><div class="container">
+    <div class="foliox_tm_main_title"><span data-i18n="contactLabel">Contact</span><h2 data-i18n="contactTitle">Get in Touch</h2></div>
+    <div class="contact_inner"><div class="left"><ul class="contact-links">
+      <li><div class="list_inner"><div class="icon"><i class="icon-location"></i></div><div class="short"><h3 data-i18n="locationLabel2">Location</h3><span data-i18n="location">Shiraz, Iran</span></div></div></li>
+      <li><div class="list_inner"><div class="icon"><i class="icon-mail-1"></i></div><div class="short"><h3>Email</h3><a href="mailto:zrezaeimobin@gmail.com">zrezaeimobin@gmail.com</a></div></div></li>
+      <li><div class="list_inner"><div class="icon"><i class="icon-phone"></i></div><div class="short"><h3 data-i18n="phone">Phone</h3><a href="tel:+989378319583">+98 937 831 9583</a></div></div></li>
+    </ul></div></div>
+  </div></div></section>
 
-  <footer class="foliox_tm_section"><div class="foliox_tm_copyright"><div class="container">
-    <p>© 2026 Zohair RezaeiMobin</p>
-  </div></div></footer>
+  <footer class="foliox_tm_section"><div class="foliox_tm_copyright"><div class="container"><p>© 2026 Zohair RezaeiMobin</p></div></div></footer>
 </div>
-
 <div class="mouse-cursor cursor-outer"></div><div class="mouse-cursor cursor-inner"></div>
 <div class="progressbar"><a href="#home"><span class="text">↑</span></a><span class="line"></span></div>
 
-<script src="js/jquery.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/init.js"></script>
+<script src="js/jquery.js"></script><script src="js/plugins.js"></script><script src="js/init.js"></script>
 <script>
 const translations={
-en:{
-navHome:"Home",navAbout:"About",navExperience:"Experience",navServices:"Services",navContact:"Contact",
-heroRole:"Medical & Cosmetic Treatment Interpreter | Export Sales",heroIntro:"Shiraz-based professional working with international patients, multilingual communication, WordPress and export sales.",contactMe:"Contact Me",
-aboutLabel:"About Me",aboutTitle:"Medical Interpretation, International Sales & Web",aboutText:"I work as a medical and cosmetic treatment interpreter in Shiraz, helping international patients communicate with clinics and medical teams. I also have professional experience in export sales and practical experience with WordPress, websites and digital content.",nameLabel:"Name",locationLabel:"Location",locationLabel2:"Location",languagesLabel:"Languages",languages:"Arabic, Persian, English, some German, some Kurdish",focusLabel:"Focus",focus:"Medical & cosmetic interpretation",
-experienceLabel:"Experience",experienceTitle:"Professional Background",role1:"Medical & Cosmetic Treatment Interpreter",role1Text:"Arabic, Persian and English interpretation, patient communication and treatment coordination for international patients in Shiraz.",role2:"WordPress & Digital Specialist",role2Text:"WordPress websites, multilingual content, social media and practical web solutions for service businesses.",role3:"Export Sales Manager",role3Text:"Managed export sales and customer development for fish feed, with a focus on the Iraqi market.",education:"Education",educationPlace:"Iran",educationText:"Completed 11-year Iranian secondary education. Professional learning has continued through practical work in web, content and international business.",
-servicesLabel:"Services",servicesTitle:"What I Do",service1:"Medical & Cosmetic Interpretation",service1Text:"Arabic, Persian and English interpretation and patient support in Shiraz.",service2:"Medical Tourism Coordination",service2Text:"Patient communication, appointments and practical coordination around treatment.",service3:"WordPress & Websites",service3Text:"Lightweight websites, WordPress management and multilingual content.",service4:"Export Sales",service4Text:"International sales and customer development, including the Iraqi market.",
-contactLabel:"Contact",contactTitle:"Get in Touch",phone:"Phone"
-},
-ar:{
-navHome:"الرئيسية",navAbout:"نبذة عني",navExperience:"الخبرة",navServices:"الخدمات",navContact:"التواصل",
-heroRole:"مترجم للعلاجات الطبية والتجميلية | مبيعات التصدير",heroIntro:"متخصص مقيم في شيراز، أعمل مع المرضى الدوليين في الترجمة والتواصل، مع خبرة في ووردبريس ومبيعات التصدير.",contactMe:"تواصل معي",
-aboutLabel:"نبذة عني",aboutTitle:"الترجمة الطبية، المبيعات الدولية والويب",aboutText:"أعمل مترجماً للعلاجات الطبية والتجميلية في شيراز، وأساعد المرضى الدوليين على التواصل مع العيادات والفرق الطبية. لدي أيضاً خبرة مهنية في مبيعات التصدير وخبرة عملية في ووردبريس والمواقع والمحتوى الرقمي.",nameLabel:"الاسم",locationLabel:"الموقع",locationLabel2:"الموقع",location:"شيراز، إيران",languagesLabel:"اللغات",languages:"العربية، الفارسية، الإنجليزية، بعض الألمانية، بعض الكردية",focusLabel:"التخصص",focus:"الترجمة الطبية والتجميلية",
-experienceLabel:"الخبرة",experienceTitle:"الخلفية المهنية",role1:"مترجم للعلاجات الطبية والتجميلية",role1Text:"الترجمة بالعربية والفارسية والإنجليزية، والتواصل مع المرضى وتنسيق العلاج للمرضى الدوليين في شيراز.",role2:"متخصص ووردبريس والمحتوى الرقمي",role2Text:"إنشاء وإدارة مواقع ووردبريس، والمحتوى متعدد اللغات ووسائل التواصل الاجتماعي.",role3:"مدير مبيعات التصدير",role3Text:"إدارة مبيعات التصدير وتطوير العملاء لمنتجات أعلاف الأسماك، مع التركيز على السوق العراقي.",education:"التعليم",educationPlace:"إيران",educationText:"أكملت التعليم الثانوي الإيراني لمدة 11 عاماً، مع استمرار التعلم المهني من خلال العمل العملي في الويب والمحتوى والأعمال الدولية.",
-servicesLabel:"الخدمات",servicesTitle:"ما أقدمه",service1:"الترجمة الطبية والتجميلية",service1Text:"الترجمة بالعربية والفارسية والإنجليزية ودعم المرضى في شيراز.",service2:"تنسيق السياحة العلاجية",service2Text:"التواصل مع المرضى والمواعيد والتنسيق العملي للعلاج.",service3:"ووردبريس والمواقع",service3Text:"مواقع خفيفة وإدارة ووردبريس ومحتوى متعدد اللغات.",service4:"مبيعات التصدير",service4Text:"المبيعات الدولية وتطوير العملاء، بما في ذلك السوق العراقي.",
-contactLabel:"التواصل",contactTitle:"تواصل معي",phone:"الهاتف"
-},
-fa:{
-navHome:"خانه",navAbout:"درباره من",navExperience:"سوابق",navServices:"خدمات",navContact:"تماس",
-heroRole:"مترجم درمان‌های پزشکی و زیبایی | فروش و صادرات",heroIntro:"متخصص مقیم شیراز با تجربه در ارتباط با بیماران بین‌المللی، ترجمه چندزبانه، وردپرس و فروش صادراتی.",contactMe:"تماس با من",
-aboutLabel:"درباره من",aboutTitle:"ترجمه پزشکی، فروش بین‌المللی و وب",aboutText:"به‌عنوان مترجم درمان‌های پزشکی و زیبایی در شیراز با بیماران بین‌المللی و تیم‌های درمانی همکاری می‌کنم. همچنین سابقه حرفه‌ای در فروش صادراتی و تجربه عملی در وردپرس، وب‌سایت و تولید محتوای دیجیتال دارم.",nameLabel:"نام",locationLabel:"موقعیت",locationLabel2:"موقعیت",location:"شیراز، ایران",languagesLabel:"زبان‌ها",languages:"عربی، فارسی، انگلیسی، کمی آلمانی، کمی کردی",focusLabel:"تخصص",focus:"ترجمه درمان‌های پزشکی و زیبایی",
-experienceLabel:"سوابق",experienceTitle:"سابقه حرفه‌ای",role1:"مترجم درمان‌های پزشکی و زیبایی",role1Text:"ترجمه عربی، فارسی و انگلیسی، ارتباط با بیماران و هماهنگی درمان برای بیماران بین‌المللی در شیراز.",role2:"متخصص وردپرس و محتوای دیجیتال",role2Text:"طراحی و مدیریت وب‌سایت‌های وردپرسی، محتوای چندزبانه و شبکه‌های اجتماعی.",role3:"مدیر فروش صادراتی",role3Text:"مدیریت فروش صادراتی و توسعه مشتری برای خوراک آبزیان، با تمرکز بر بازار عراق.",education:"تحصیلات",educationPlace:"ایران",educationText:"تحصیلات متوسطه ۱۱ ساله در ایران را به پایان رسانده‌ام و یادگیری حرفه‌ای خود را از طریق تجربه عملی در وب، محتوا و کسب‌وکار بین‌المللی ادامه داده‌ام.",
-servicesLabel:"خدمات",servicesTitle:"خدمات من",service1:"ترجمه پزشکی و زیبایی",service1Text:"ترجمه عربی، فارسی و انگلیسی و پشتیبانی از بیماران در شیراز.",service2:"هماهنگی گردشگری پزشکی",service2Text:"ارتباط با بیمار، هماهنگی نوبت و پشتیبانی عملی در روند درمان.",service3:"وردپرس و وب‌سایت",service3Text:"وب‌سایت‌های سبک، مدیریت وردپرس و محتوای چندزبانه.",service4:"فروش صادراتی",service4Text:"فروش بین‌المللی و توسعه مشتری، از جمله در بازار عراق.",
-contactLabel:"تماس",contactTitle:"در تماس باشید",phone:"تلفن"
-}};
-function setLanguage(lang){
- const t=translations[lang];
- document.documentElement.lang=lang;
- document.documentElement.dir=lang==="en"?"ltr":"rtl";
- document.querySelectorAll("[data-i18n]").forEach(el=>{if(t[el.dataset.i18n])el.textContent=t[el.dataset.i18n]});
- document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
- localStorage.setItem("resumeLang",lang);
-}
-document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));
-setLanguage(localStorage.getItem("resumeLang")||"en");
+en:{navHome:"Home",navAbout:"About",navExperience:"Experience",navServices:"Services",navContact:"Contact",heroRole:"Medical & Cosmetic Treatment Interpreter | Export Sales",heroIntro:"Shiraz-based professional working with international patients, multilingual communication, WordPress and export sales.",contactMe:"Contact Me",aboutLabel:"About Me",aboutTitle:"Medical Interpretation, International Sales & Web",aboutText:"I work as a medical and cosmetic treatment interpreter in Shiraz, helping international patients communicate with clinics and medical teams. I also have professional experience in export sales and practical experience with WordPress, websites and digital content.",nameLabel:"Name",locationLabel:"Location",locationLabel2:"Location",location:"Shiraz, Iran",languagesLabel:"Languages",languages:"Arabic, Persian, English, some German, some Kurdish",focusLabel:"Focus",focus:"Medical & cosmetic interpretation",experienceLabel:"Experience",experienceTitle:"Professional Background",role1:"Medical & Cosmetic Treatment Interpreter",role1Text:"Arabic, Persian and English interpretation, patient communication and treatment coordination for international patients in Shiraz.",role2:"WordPress & Digital Specialist",role2Text:"WordPress websites, multilingual content, social media and practical web solutions for service businesses.",role3:"Export Sales Manager",role3Text:"Managed export sales and customer development for fish feed, with a focus on the Iraqi market.",education:"Education",educationPlace:"Iran",educationText:"Completed 11-year Iranian secondary education. Professional learning has continued through practical work in web, content and international business.",servicesLabel:"Services",servicesTitle:"What I Do",service1:"Medical & Cosmetic Interpretation",service1Text:"Arabic, Persian and English interpretation and patient support in Shiraz.",service2:"Medical Tourism Coordination",service2Text:"Patient communication, appointments and practical coordination around treatment.",service3:"WordPress & Websites",service3Text:"Lightweight websites, WordPress management and multilingual content.",service4:"Export Sales",service4Text:"International sales and customer development, including the Iraqi market.",contactLabel:"Contact",contactTitle:"Get in Touch",phone:"Phone"},
+ar:{navHome:"الرئيسية",navAbout:"نبذة عني",navExperience:"الخبرة",navServices:"الخدمات",navContact:"التواصل",heroRole:"مترجم للعلاجات الطبية والتجميلية | مبيعات التصدير",heroIntro:"متخصص مقيم في شيراز، أعمل مع المرضى الدوليين في الترجمة والتواصل، مع خبرة في ووردبريس ومبيعات التصدير.",contactMe:"تواصل معي",aboutLabel:"نبذة عني",aboutTitle:"الترجمة الطبية، المبيعات الدولية والويب",aboutText:"أعمل مترجماً للعلاجات الطبية والتجميلية في شيراز، وأساعد المرضى الدوليين على التواصل مع العيادات والفرق الطبية. لدي أيضاً خبرة مهنية في مبيعات التصدير وخبرة عملية في ووردبريس والمواقع والمحتوى الرقمي.",nameLabel:"الاسم",locationLabel:"الموقع",locationLabel2:"الموقع",location:"شيراز، إيران",languagesLabel:"اللغات",languages:"العربية، الفارسية، الإنجليزية، بعض الألمانية، بعض الكردية",focusLabel:"التخصص",focus:"الترجمة الطبية والتجميلية",experienceLabel:"الخبرة",experienceTitle:"الخلفية المهنية",role1:"مترجم للعلاجات الطبية والتجميلية",role1Text:"الترجمة بالعربية والفارسية والإنجليزية، والتواصل مع المرضى وتنسيق العلاج للمرضى الدوليين في شيراز.",role2:"متخصص ووردبريس والمحتوى الرقمي",role2Text:"إنشاء وإدارة مواقع ووردبريس، والمحتوى متعدد اللغات ووسائل التواصل الاجتماعي.",role3:"مدير مبيعات التصدير",role3Text:"إدارة مبيعات التصدير وتطوير العملاء لمنتجات أعلاف الأسماك، مع التركيز على السوق العراقي.",education:"التعليم",educationPlace:"إيران",educationText:"أكملت التعليم الثانوي الإيراني لمدة 11 عاماً، مع استمرار التعلم المهني من خلال العمل العملي في الويب والمحتوى والأعمال الدولية.",servicesLabel:"الخدمات",servicesTitle:"ما أقدمه",service1:"الترجمة الطبية والتجميلية",service1Text:"الترجمة بالعربية والفارسية والإنجليزية ودعم المرضى في شيراز.",service2:"تنسيق السياحة العلاجية",service2Text:"التواصل مع المرضى والمواعيد والتنسيق العملي للعلاج.",service3:"ووردبريس والمواقع",service3Text:"مواقع خفيفة وإدارة ووردبريس ومحتوى متعدد اللغات.",service4:"مبيعات التصدير",service4Text:"المبيعات الدولية وتطوير العملاء، بما في ذلك السوق العراقي.",contactLabel:"التواصل",contactTitle:"تواصل معي",phone:"الهاتف"},
+fa:{navHome:"خانه",navAbout:"درباره من",navExperience:"سوابق",navServices:"خدمات",navContact:"تماس",heroRole:"مترجم درمان‌های پزشکی و زیبایی | فروش و صادرات",heroIntro:"متخصص مقیم شیراز با تجربه در ارتباط با بیماران بین‌المللی، ترجمه چندزبانه، وردپرس و فروش صادراتی.",contactMe:"تماس با من",aboutLabel:"درباره من",aboutTitle:"ترجمه پزشکی، فروش بین‌المللی و وب",aboutText:"به‌عنوان مترجم درمان‌های پزشکی و زیبایی در شیراز با بیماران بین‌المللی و تیم‌های درمانی همکاری می‌کنم. همچنین سابقه حرفه‌ای در فروش صادراتی و تجربه عملی در وردپرس، وب‌سایت و تولید محتوای دیجیتال دارم.",nameLabel:"نام",locationLabel:"موقعیت",locationLabel2:"موقعیت",location:"شیراز، ایران",languagesLabel:"زبان‌ها",languages:"عربی، فارسی، انگلیسی، کمی آلمانی، کمی کردی",focusLabel:"تخصص",focus:"ترجمه درمان‌های پزشکی و زیبایی",experienceLabel:"سوابق",experienceTitle:"سابقه حرفه‌ای",role1:"مترجم درمان‌های پزشکی و زیبایی",role1Text:"ترجمه عربی، فارسی و انگلیسی، ارتباط با بیماران و هماهنگی درمان برای بیماران بین‌المللی در شیراز.",role2:"متخصص وردپرس و محتوای دیجیتال",role2Text:"طراحی و مدیریت وب‌سایت‌های وردپرسی، محتوای چندزبانه و شبکه‌های اجتماعی.",role3:"مدیر فروش صادراتی",role3Text:"مدیریت فروش صادراتی و توسعه مشتری برای خوراک آبزیان، با تمرکز بر بازار عراق.",education:"تحصیلات",educationPlace:"ایران",educationText:"تحصیلات متوسطه ۱۱ ساله در ایران را به پایان رسانده‌ام و یادگیری حرفه‌ای خود را از طریق تجربه عملی در وب، محتوا و کسب‌وکار بین‌المللی ادامه داده‌ام.",servicesLabel:"خدمات",servicesTitle:"خدمات من",service1:"ترجمه پزشکی و زیبایی",service1Text:"ترجمه عربی، فارسی و انگلیسی و پشتیبانی از بیماران در شیراز.",service2:"هماهنگی گردشگری پزشکی",service2Text:"ارتباط با بیمار، هماهنگی نوبت و پشتیبانی عملی در روند درمان.",service3:"وردپرس و وب‌سایت",service3Text:"وب‌سایت‌های سبک، مدیریت وردپرس و محتوای چندزبانه.",service4:"فروش صادراتی",service4Text:"فروش بین‌المللی و توسعه مشتری، از جمله در بازار عراق.",contactLabel:"تماس",contactTitle:"در تماس باشید",phone:"تلفن"}};
+function setLanguage(lang){const t=translations[lang];document.documentElement.lang=lang;document.documentElement.dir=lang==="en"?"ltr":"rtl";document.querySelectorAll("[data-i18n]").forEach(el=>{if(t[el.dataset.i18n])el.textContent=t[el.dataset.i18n]});document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));localStorage.setItem("resumeLang",lang)}
+document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));setLanguage(localStorage.getItem("resumeLang")||"en");
 </script>
-</body>
-</html>
+</body></html>
