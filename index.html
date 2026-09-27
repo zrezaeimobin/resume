@@ -19,11 +19,27 @@
     .foliox_tm_all_wrap{overflow:hidden}
     .foliox_tm_header{backdrop-filter:blur(16px);background:rgba(255,255,255,.78);border-bottom:1px solid rgba(21,21,35,.07)}
     .foliox_tm_header .inner{min-height:82px}
-    .language-switcher{display:flex;align-items:center;gap:5px;margin-left:22px;padding:4px;border:1px solid rgba(21,21,35,.1);border-radius:999px;background:#fff;box-shadow:0 5px 20px rgba(21,21,35,.07)}
-    html[dir=rtl] .language-switcher{margin-left:0;margin-right:22px}
-    .language-switcher button{border:0;background:transparent;color:#666;padding:7px 12px;border-radius:999px;cursor:pointer;font:600 12px Manrope,"Noto Sans Arabic",sans-serif;transition:.25s}
-    .language-switcher button:hover{color:var(--accent)}
-    .language-switcher button.active{background:var(--ink);color:#fff}
+    .language-switcher{position:fixed!important;top:18px;right:22px;z-index:999999!important;display:flex!important;align-items:center;gap:3px;padding:5px!important;border:1px solid #d9d7e3;border-radius:999px;background:#ffffff!important;box-shadow:0 10px 30px rgba(21,21,35,.16);visibility:visible!important;opacity:1!important}
+    html[dir=rtl] .language-switcher{right:auto!important;left:22px!important;margin:0!important}
+    .language-switcher button{border:0!important;background:transparent!important;color:#343240!important;padding:8px 12px!important;border-radius:999px!important;cursor:pointer;font:700 12px Manrope,"Noto Sans Arabic",sans-serif;line-height:1!important;transition:.2s}
+    .language-switcher button:hover{color:#5b3fd4!important;background:#f2efff!important}
+    .language-switcher button.active{background:#171522!important;color:#fff!important}
+    body{background:#f7f7fa!important;color:#171522!important}
+    .foliox_tm_header{background:#fff!important;border-bottom:1px solid #e7e5ed!important}
+    .foliox_tm_hero{background:#f7f7fa!important}
+    .foliox_tm_hero:before{opacity:.35!important}
+    .foliox_tm_hero .text,.clean-card p{color:#4b4857!important}
+    .clean-card{background:#fff!important;border-color:#dedce5!important;box-shadow:0 12px 35px rgba(21,21,35,.07)!important}
+    .foliox_tm_services .list_inner{background:#fff!important;border-color:#dedce5!important}
+    .foliox_tm_contact .contact_inner{background:#fff!important;border:1px solid #dedce5!important}
+    .foliox_tm_contact .contact_inner *{color:inherit}
+    .contact-links a{color:#171522!important}
+    .foliox_tm_section:nth-of-type(even){background:#f0f0f5!important}
+    @media(max-width:900px){
+      .language-switcher{top:76px!important;right:12px!important}
+      html[dir=rtl] .language-switcher{right:auto!important;left:12px!important}
+      .language-switcher button{padding:8px 10px!important}
+    }
     .foliox_tm_hero{position:relative}
     .foliox_tm_hero:before{content:"";position:absolute;width:520px;height:520px;right:-170px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.17),transparent 68%);pointer-events:none}
     html[dir=rtl] .foliox_tm_hero:before{right:auto;left:-170px}
