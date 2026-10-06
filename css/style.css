@@ -50,8 +50,14 @@ html[dir=rtl] .brand-caption{letter-spacing:0;font-size:11px}
 .language-switcher button[aria-pressed=true]{background:var(--accent);color:var(--bg)}
 .language-switcher button:hover:not([aria-pressed=true]){background:#3a2b71;color:var(--accent)}
 .language-switcher img{object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px #12304720;flex-shrink:0}
-.menu-toggle{display:none;align-items:center;gap:7px;border:1px solid var(--line);border-radius:9px;background:var(--surface);padding:8px 11px;min-height:44px;font-size:13px;font-weight:700;color:var(--ink)}
-.menu-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.menu-toggle{display:none;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);border-radius:9px;background:var(--surface);padding:8px 11px;min-width:44px;min-height:44px;font-size:13px;font-weight:700;color:var(--ink)}
+.menu-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.menu-line{transform-origin:12px 12px;transition:transform .25s ease,opacity .2s ease}
+.menu-line-top{transform:translateY(-6px)}
+.menu-line-bottom{transform:translateY(6px)}
+.menu-toggle[aria-expanded=true] .menu-line-top{transform:rotate(45deg)}
+.menu-toggle[aria-expanded=true] .menu-line-middle{opacity:0;transform:scaleX(.25)}
+.menu-toggle[aria-expanded=true] .menu-line-bottom{transform:rotate(-45deg)}
 .hero{padding-top:64px;padding-bottom:0;background:transparent}
 
 .hero-grid{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:58px;padding-bottom:70px;min-height:570px}
