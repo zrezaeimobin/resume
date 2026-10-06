@@ -1,6 +1,6 @@
 # Zohair RezaeiMobin — Resume & Portfolio
 
-A responsive, trilingual resume and portfolio for my work in digital marketing strategy, company leadership, medical tourism, negotiation, WordPress websites and projects involving Iraq. The original Foliox dark-purple and cyan palette, background artwork and mouse-circle effect are restored, with Google Fonts Vazirmatn throughout.
+A responsive, trilingual resume and portfolio for my work in digital marketing strategy, company leadership, medical tourism, negotiation, web development and projects involving Iraq. The original Foliox dark-purple and cyan palette, background artwork and mouse-circle effect are restored, with Google Fonts Vazirmatn throughout.
 
 **Website:** https://zrezaeimobin.github.io/resume/
 
@@ -8,7 +8,8 @@ A responsive, trilingual resume and portfolio for my work in digital marketing s
 
 - Based in Shiraz, Iran.
 - Founder and CEO of SanaMedTour in Shiraz, with clients from more than 10 countries; international patient coordination and medical interpretation.
-- Digital marketing strategy across Facebook, Instagram, YouTube and TikTok, with WordPress websites, multilingual content and social media management.
+- Digital Marketing Strategist & Web Developer, with Facebook, Instagram, YouTube and TikTok expertise.
+- Web services: WordPress websites, custom HTML websites and web application development, with multilingual content and ongoing improvements.
 - Eye-care communication and web presence through ShirazEye.
 - Fish-feed export sales experience with Fitall, focused on the Iraqi market.
 - Strong negotiation skills and deep knowledge of Iraq, its language, culture and business context.

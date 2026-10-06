@@ -66,6 +66,7 @@ html[dir=rtl] .brand-caption{letter-spacing:0;font-size:11px}
 .hero h1>span{display:block}
 .accent{color:var(--accent)}
 .hero-role{font-weight:800;font-size:19px;line-height:1.7;margin-bottom:13px;max-width:550px}
+.hero-founder{font-size:14px;font-weight:700;line-height:1.7;color:var(--accent);margin-top:-5px;margin-bottom:13px}
 .hero-intro{max-width:495px;font-size:16px;color:var(--muted);line-height:1.9}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:52px;border-radius:999px;padding:12px 23px;font-size:13px;font-weight:800;border:1px solid transparent;transition:transform .2s,box-shadow .2s}
