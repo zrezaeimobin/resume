@@ -112,7 +112,7 @@
         ], { duration: 680, easing: "cubic-bezier(.16,1,.3,1)" });
       });
     }, { threshold: 0.08, rootMargin: "0px 0px -16px 0px" });
-    document.querySelectorAll(".hero-copy, .hero-portrait, .section-heading, .about-copy, .language-panel, .iraq-feature, .experience-card, .project-card, .service-card, .contact-card").forEach(element => reveal.observe(element));
+    document.querySelectorAll(".hero-copy, .hero-portrait, .section-heading, .about-copy, .language-panel, .iraq-feature, .marketing-feature, .platform-list, .experience-card, .project-card, .service-card, .contact-card").forEach(element => reveal.observe(element));
     animateElement(document.querySelector(".portrait-deco"), [
       { transform: "rotate(0deg)" },
       { transform: "rotate(90deg)", offset: 0.5 },
@@ -146,4 +146,74 @@
     }, { rootMargin: "-20% 0px -50% 0px" });
     document.querySelectorAll("main>section[id]").forEach(section => observer.observe(section));
   }
+
+  // Foliox magic cursor: a cyan ring follows the mouse and expands over controls.
+  // Touch, pen and reduced-motion input keep the regular system pointer.
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const cursorInner = document.querySelector(".cursor-inner");
+  const cursorOuter = document.querySelector(".cursor-outer");
+  const tiltElements = document.querySelectorAll(".portrait-frame, .service-card, .project-visual");
+  let cursorFrame = 0;
+  let cursorX = 0;
+  let cursorY = 0;
+
+  function hideCursor() {
+    root.classList.remove("cursor-visible");
+    if (cursorFrame) cancelAnimationFrame(cursorFrame);
+    cursorFrame = 0;
+    cursorInner.classList.remove("cursor-hover");
+    cursorOuter.classList.remove("cursor-hover");
+  }
+
+  function resetTilt(element) {
+    element.style.removeProperty("--tilt-x");
+    element.style.removeProperty("--tilt-y");
+  }
+
+  function resetPointerEffects() {
+    hideCursor();
+    tiltElements.forEach(resetTilt);
+  }
+
+  document.addEventListener("pointermove", event => {
+    if (event.pointerType !== "mouse" || !finePointer.matches || reducedMotion.matches) {
+      resetPointerEffects();
+      return;
+    }
+    cursorX = event.clientX;
+    cursorY = event.clientY;
+    const hovered = Boolean(event.target.closest("a, button, [role='button'], .cursor-pointer"));
+    cursorInner.classList.toggle("cursor-hover", hovered);
+    cursorOuter.classList.toggle("cursor-hover", hovered);
+    if (cursorFrame) return;
+    cursorFrame = requestAnimationFrame(() => {
+      cursorFrame = 0;
+      const position = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+      cursorInner.style.transform = position;
+      cursorOuter.style.transform = position;
+      root.classList.add("cursor-visible");
+    });
+  }, { passive: true });
+  document.addEventListener("pointerout", event => { if (!event.relatedTarget) hideCursor(); });
+  document.addEventListener("pointercancel", resetPointerEffects);
+  document.addEventListener("keydown", event => { if (event.key === "Tab") resetPointerEffects(); });
+  window.addEventListener("blur", resetPointerEffects);
+  window.addEventListener("beforeprint", resetPointerEffects);
+  finePointer.addEventListener("change", resetPointerEffects);
+  reducedMotion.addEventListener("change", resetPointerEffects);
+
+  // The original theme's four-degree hover tilt, without its jQuery dependency.
+  tiltElements.forEach(element => {
+    element.classList.add("tilt-effect");
+    element.addEventListener("pointermove", event => {
+      if (event.pointerType !== "mouse" || !finePointer.matches || reducedMotion.matches) return;
+      const bounds = element.getBoundingClientRect();
+      const x = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1));
+      const y = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1));
+      element.style.setProperty("--tilt-x", `${-y * 4}deg`);
+      element.style.setProperty("--tilt-y", `${x * 4}deg`);
+    }, { passive: true });
+    element.addEventListener("pointerleave", () => resetTilt(element));
+    element.addEventListener("focusin", () => resetTilt(element));
+  });
 })();
