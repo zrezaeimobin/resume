@@ -8,6 +8,20 @@
   const navigation = document.querySelector(".site-nav");
   const languageButtons = document.querySelectorAll("[data-lang]");
   const status = document.querySelector("#language-status");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const runningAnimations = new Set();
+
+  function stopAnimations() {
+    runningAnimations.forEach(animation => animation.cancel());
+    runningAnimations.clear();
+  }
+
+  function animateElement(element, keyframes, options) {
+    if (reducedMotion.matches || typeof element.animate !== "function") return;
+    const animation = element.animate(keyframes, options);
+    runningAnimations.add(animation);
+    animation.finished.then(() => runningAnimations.delete(animation), () => runningAnimations.delete(animation));
+  }
 
   function closeMenu(returnFocus = false) {
     menu.setAttribute("aria-expanded", "false");
@@ -44,6 +58,13 @@
       try { history.replaceState(null, "", url); } catch { /* Keep working in file previews. */ }
     }
     if (announce) status.textContent = dictionary.languageChanged;
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const height = root.scrollHeight - window.innerHeight;
+    const progress = height > 0 ? Math.min(1, Math.max(0, window.scrollY / height)) : 0;
+    document.querySelector(".reading-progress").style.transform = `scaleX(${progress})`;
   }
 
   root.classList.add("js");
@@ -77,6 +98,41 @@
   const print = document.querySelector(".print-button");
   print.hidden = false;
   print.addEventListener("click", () => window.print());
+
+  // One-time entrance animations work on touch screens as well as desktop.
+  // Content is visible by default, even if JS or IntersectionObserver is unavailable.
+  if ("IntersectionObserver" in window) {
+    const reveal = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        reveal.unobserve(entry.target);
+        animateElement(entry.target, [
+          { opacity: 0, transform: "translate3d(0, 22px, 0)" },
+          { opacity: 1, transform: "translate3d(0, 0, 0)" }
+        ], { duration: 680, easing: "cubic-bezier(.16,1,.3,1)" });
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -16px 0px" });
+    document.querySelectorAll(".hero-copy, .hero-portrait, .section-heading, .about-copy, .language-panel, .iraq-feature, .experience-card, .project-card, .service-card, .contact-card").forEach(element => reveal.observe(element));
+    animateElement(document.querySelector(".portrait-deco"), [
+      { transform: "rotate(0deg)" },
+      { transform: "rotate(90deg)", offset: 0.5 },
+      { transform: "rotate(0deg)" }
+    ], { duration: 3600, easing: "ease-in-out" });
+  }
+  reducedMotion.addEventListener("change", () => { if (reducedMotion.matches) stopAnimations(); });
+  window.addEventListener("beforeprint", stopAnimations);
+  document.addEventListener("focusin", event => {
+    runningAnimations.forEach(animation => {
+      if (animation.effect.target.contains(event.target)) animation.cancel();
+    });
+  });
+  let scrollQueued = false;
+  window.addEventListener("scroll", () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => { updateProgress(); scrollQueued = false; });
+  }, { passive: true });
+  window.addEventListener("resize", updateProgress);
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => {
