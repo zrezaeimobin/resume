@@ -58,6 +58,7 @@
       try { history.replaceState(null, "", url); } catch { /* Keep working in file previews. */ }
     }
     if (announce) status.textContent = dictionary.languageChanged;
+    updateWhatsAppLinks();
     updateProgress();
   }
 
@@ -82,6 +83,36 @@
   });
   navigation.querySelectorAll("a").forEach(link => link.addEventListener("click", () => closeMenu()));
   window.matchMedia("(min-width: 851px)").addEventListener("change", () => closeMenu());
+
+
+  // Prefill the selected-language page URL so incoming WhatsApp chats identify their source.
+  function updateWhatsAppLinks() {
+    const lang = supported.includes(root.lang) ? root.lang : "en";
+    const dictionary = translations[lang];
+    const greetings = {
+      en: "Hello Zohair, I am contacting you from your resume website.",
+      fa: "سلام، از طریق وب‌سایت رزومه شما پیام می‌دهم.",
+      ar: "مرحباً زهير، أتواصل معك من موقع سيرتك الذاتية."
+    };
+    const languageNames = { en: "English", fa: "فارسی", ar: "العربية" };
+    const pageLabels = { en: "Page", fa: "صفحه", ar: "الصفحة" };
+    const sourceLabels = { en: "Source", fa: "لینک صفحه", ar: "رابط الصفحة" };
+    document.querySelectorAll("a[data-whatsapp-source]").forEach(link => {
+      const source = new URL(window.location.href);
+      source.searchParams.set("lang", lang);
+      const section = link.closest("section[id]");
+      if (section) source.hash = "#" + section.id;
+      const message = [
+        greetings[lang],
+        languageNames[lang],
+        pageLabels[lang] + ": " + dictionary.pageTitle,
+        sourceLabels[lang] + ": " + source.href
+      ].join("\n");
+      link.href = "https://wa.me/9647884500002?text=" + encodeURIComponent(message);
+    });
+  }
+
+  document.querySelectorAll("a[data-whatsapp-source]").forEach(link => link.addEventListener("click", updateWhatsAppLinks));
 
   languageButtons.forEach(button => button.addEventListener("click", () => {
     setLanguage(button.dataset.lang, true, true);
