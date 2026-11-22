@@ -50,3 +50,5 @@ WhatsApp contact buttons prefill a localized message with the selected language,
 ## Interactive motion (desktop)
 
 When using a mouse, the cyan cursor includes a smooth trailing outer halo that expands gently over controls and cards. Experience, project, service, language and contact cards respond with a soft spotlight and lift; small cards gain a restrained 3D tilt. The portrait border gently breathes. The design uses native CSS and JavaScript only, throttles spotlight measurements to animation frames, and pauses the cursor trail when stationary. Cursor and hover motion are suppressed for touch pointers, reduced-motion settings and printed resumes. Visible keyboard focus remains intact.
+
+The `motion-visible-20261122` stylesheet update strengthens hover contrast and the trailing halo after a live visual inspection found the original interactive effects working but too subtle to notice. The enhanced effects remain disabled for reduced-motion users and coarse/touch pointers.
