@@ -27,8 +27,6 @@
 
   function clearCard(card) {
     if (!card) return;
-    card.style.removeProperty("--mouse-x");
-    card.style.removeProperty("--mouse-y");
     card.style.removeProperty("--tilt-x");
     card.style.removeProperty("--tilt-y");
   }
@@ -86,8 +84,6 @@
     if (!rect.width || !rect.height) return;
     const x = Math.max(0, Math.min(1, (pointX - rect.left) / rect.width));
     const y = Math.max(0, Math.min(1, (pointY - rect.top) / rect.height));
-    card.style.setProperty("--mouse-x", (x * 100).toFixed(1) + "%");
-    card.style.setProperty("--mouse-y", (y * 100).toFixed(1) + "%");
     if (card.matches(tiltableSelector)) {
       card.style.setProperty("--tilt-x", ((0.5 - y) * 5).toFixed(2) + "deg");
       card.style.setProperty("--tilt-y", ((x - 0.5) * 5).toFixed(2) + "deg");
