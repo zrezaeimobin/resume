@@ -52,3 +52,7 @@ WhatsApp contact buttons prefill a localized message with the selected language,
 When using a mouse, the cyan cursor includes a smooth trailing outer halo that expands gently over controls and cards. Experience, project, service, language and contact cards respond with a soft spotlight and lift; small cards gain a restrained 3D tilt. The portrait border gently breathes. The design uses native CSS and JavaScript only, throttles spotlight measurements to animation frames, and pauses the cursor trail when stationary. Cursor and hover motion are suppressed for touch pointers, reduced-motion settings and printed resumes. Visible keyboard focus remains intact.
 
 The `motion-visible-20261122` stylesheet update strengthens hover contrast and the trailing halo after a live visual inspection found the original interactive effects working but too subtle to notice. The enhanced effects remain disabled for reduced-motion users and coarse/touch pointers.
+
+## Motion system v2 (November 22, 2026)
+
+Rebuilt to avoid conflicting hover rules. The last section of `css/style.css` contains the entire animation system, with pronounced card lift and glow working in CSS even when JavaScript is unavailable. The tiny `js/motion.js` module provides progressive cursor following, spotlight coordinates and subtle tilt for mouse users. Mouse and touch hybrid devices are supported via `any-pointer: fine`. Reduced-motion and print modes are respected. No external animation dependencies or build step.
