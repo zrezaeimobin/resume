@@ -1,8 +1,8 @@
-# Zohair RezaeiMobin — Resume & Portfolio
+# Zohair Karim Zwari — Resume & Portfolio
 
 A responsive, trilingual resume and portfolio for my work in digital marketing strategy, company leadership, medical tourism, negotiation, web development and projects involving Iraq. The original Foliox dark-purple and cyan palette, background artwork and mouse-circle effect are restored, with Google Fonts Vazirmatn throughout.
 
-**Website:** https://zrezaeimobin.github.io/resume/
+**Website:** https://resume.mobinq.com/
 
 ## Profile
 
@@ -17,17 +17,17 @@ A responsive, trilingual resume and portfolio for my work in digital marketing s
 
 **Email:** zrezaeimobin@gmail.com
 
-**Iran phone and WhatsApp:** +98 937 831 9583 — https://wa.me/989378319583
+**Iran phone:** +98 937 831 9583
 
-**Iraq WhatsApp:** +964 774 999 9583 — https://wa.me/9647749999583
+**WhatsApp (all three languages):** +9647884500002 — https://wa.me/9647884500002
 
 ## Languages
 
 The persistent language switcher pairs language names with the requested flags:
 
-- 🇺🇸 [English](https://zrezaeimobin.github.io/resume/?lang=en)
-- 🇮🇷 [فارسی](https://zrezaeimobin.github.io/resume/?lang=fa)
-- 🇮🇶 [العربية](https://zrezaeimobin.github.io/resume/?lang=ar)
+- 🇺🇸 [English](https://resume.mobinq.com/?lang=en)
+- 🇮🇷 [فارسی](https://resume.mobinq.com/?lang=fa)
+- 🇮🇶 [العربية](https://resume.mobinq.com/?lang=ar)
 
 Language selection updates content, document direction, page title, metadata and accessible labels. The choice is saved locally when browser storage is available; an explicit `?lang=` link takes precedence. The English content remains readable without JavaScript.
 
@@ -44,3 +44,5 @@ Language selection updates content, document direction, page title, metadata and
 No build step or JavaScript framework is required. Run `python -m http.server 8765` from this directory to preview locally. Use the page’s print button to print or save the currently selected language as a PDF. Publishing uses the repository’s existing GitHub Pages configuration.
 
 The theme’s original background artwork is loaded from `img/hero/1.jpg`. Its cyan circular cursor, button wipe and gentle hover tilt are adapted to the current accessible, trilingual markup. Mouse effects run only with a fine pointer and hover support; they are disabled for touch input and reduced motion.
+
+WhatsApp contact buttons prefill a localized message with the selected language, page title, and current section URL (including `?lang=`), so the recipient can recognize the source of the enquiry. English fallback contact links also include source information without JavaScript.
