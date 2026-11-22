@@ -284,3 +284,51 @@ html[dir=rtl] .organization[dir=ltr],html[dir=rtl] .project-content h3{text-alig
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.mouse-cursor{display:block}.cursor-visible .mouse-cursor{visibility:visible}}
 @media(prefers-reduced-motion:reduce){.tilt-effect{transform:none}.button-primary:before{display:none}.platform-list li:hover{transform:none}}
 @media print{:root{--ink:#000;--muted:#333;--accent:#222;--accent-bright:#222;--teal:#222;--bg:#fff;--surface:#fff;--line:#ccc}body{background:#fff!important}.mouse-cursor{display:none!important}.marketing-feature,.service-card,.iraq-feature,.whatsapp-method{background:#fff;border-color:#ccc;break-inside:avoid}.marketing-feature{padding:16px;grid-template-columns:1fr}.marketing-copy h3{font-size:12pt}.marketing-copy>p:not(.eyebrow){font-size:10pt}.platform-list{display:flex;flex-wrap:wrap;gap:8px}.platform-list li{padding:4px 10px;min-height:0;font-size:9pt}.platform-symbol{display:none}.language-list strong,.language-list strong.level-basic{background:#eee;color:#000}.tilt-effect{transform:none!important}.hero-portrait:before{display:none}}
+
+
+/* 2026 design polish: pointer-tracked spotlight, graceful card motion and a trailing ring. */
+.hero{background:radial-gradient(ellipse at 75% 24%,rgba(0,192,255,.095),transparent 57%)}
+.motion-card{position:relative;isolation:isolate}
+.motion-card:focus-within{border-color:rgba(88,213,255,.65);box-shadow:0 0 0 1px rgba(88,213,255,.15),0 14px 35px rgba(0,9,35,.23)}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .motion-card{transition:border-color .34s ease,box-shadow .34s ease,transform .38s cubic-bezier(.2,.8,.2,1)}
+  .motion-card::after{content:"";position:absolute;inset:0;z-index:0;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(320px circle at var(--spot-x,50%) var(--spot-y,50%),rgba(0,192,255,.17),transparent 70%);transition:opacity .32s ease}
+  .motion-card>*{position:relative;z-index:1}
+  .motion-card:hover{border-color:rgba(88,213,255,.55);box-shadow:0 22px 56px rgba(2,5,28,.29),0 0 28px rgba(0,192,255,.09);transform:translateY(-5px)}
+  .motion-card:hover::after{opacity:1}
+  .motion-card.tilt-effect{transform:translateY(var(--card-lift,0px)) perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .36s cubic-bezier(.2,.8,.2,1),box-shadow .34s ease,border-color .34s ease}
+  .motion-card.tilt-effect:hover{--card-lift:-5px}
+  .project-visual::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;background:radial-gradient(260px circle at var(--spot-x,50%) var(--spot-y,50%),rgba(91,220,255,.20),transparent 78%);transition:opacity .35s ease}
+  .project-card:hover .project-visual::after{opacity:1}
+  .project-card:hover .project-orbit{transform:scale(1.15) rotate(11deg)}
+  .project-card .project-wordmark{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  .project-card:hover .project-wordmark{transform:translateY(-4px)}
+  .service-card:hover h3,.experience-card:hover .experience-body h3{color:var(--accent-bright);transition:color .3s ease}
+  .service-card:hover .service-icon{box-shadow:0 9px 25px rgba(0,192,255,.25)}
+  .contact-method .arrow,.project-content .text-link .arrow{transition:transform .25s ease}
+  .contact-method:hover .arrow,.project-content .text-link:hover .arrow{transform:translate(3px,-3px)}
+  html[dir=rtl] .contact-method:hover .arrow,html[dir=rtl] .project-content .text-link:hover .arrow{transform:translate(-3px,-3px)}
+  .skill-tags li{transition:border-color .25s ease,background-color .25s ease,color .25s ease}
+  .skill-tags li:hover{border-color:rgba(0,192,255,.55);background:rgba(0,192,255,.09);color:#d6f6ff}
+  .hero-portrait:before{animation:portraitBreathe 7s ease-in-out infinite}
+  .status-dot{animation:statusBreathe 3.5s ease-in-out infinite}
+}
+@keyframes portraitBreathe{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-7px)}}
+@keyframes statusBreathe{0%,100%{box-shadow:0 0 0 4px rgba(0,192,255,.09)}50%{box-shadow:0 0 0 8px rgba(0,192,255,.02)}}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .cursor-inner{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:var(--accent-bright);box-shadow:0 0 10px rgba(0,192,255,.5);transition:width .25s ease,height .25s ease,margin .25s ease,opacity .25s ease}
+  .cursor-inner.cursor-hover{width:10px;height:10px;margin:-5px 0 0 -5px;opacity:.95;background:var(--accent-bright);box-shadow:0 0 18px rgba(0,192,255,.7)}
+  .cursor-outer{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid rgba(88,213,255,.8);opacity:.75;box-shadow:0 0 0 3px rgba(0,192,255,.055),0 0 18px rgba(0,192,255,.15);transition:width .25s ease,height .25s ease,margin .25s ease,opacity .25s ease,box-shadow .25s ease}
+  .cursor-outer.cursor-hover{width:58px;height:58px;margin:-29px 0 0 -29px;opacity:.9;box-shadow:0 0 0 5px rgba(0,192,255,.07),0 0 30px rgba(0,192,255,.28)}
+}
+/* Motion is never required for legibility, keyboard focus, print or touch devices. */
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+  .motion-card,.motion-card:hover,.motion-card.tilt-effect,.motion-card.tilt-effect:hover{transform:none;transition:none}
+  .motion-card::after,.project-visual::after{display:none}
+  .hero-portrait:before,.status-dot{animation:none}
+}
+@media print{
+  .hero{background:none!important}
+  .motion-card,.motion-card:hover,.motion-card:focus-within{transform:none!important;box-shadow:none}
+  .motion-card::after,.project-visual::after{display:none!important}
+}
