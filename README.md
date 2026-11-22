@@ -46,3 +46,7 @@ No build step or JavaScript framework is required. Run `python -m http.server 87
 The theme’s original background artwork is loaded from `img/hero/1.jpg`. Its cyan circular cursor, button wipe and gentle hover tilt are adapted to the current accessible, trilingual markup. Mouse effects run only with a fine pointer and hover support; they are disabled for touch input and reduced motion.
 
 WhatsApp contact buttons prefill a localized message with the selected language, page title, and current section URL (including `?lang=`), so the recipient can recognize the source of the enquiry. English fallback contact links also include source information without JavaScript.
+
+## Interactive motion (desktop)
+
+When using a mouse, the cyan cursor includes a smooth trailing outer halo that expands gently over controls and cards. Experience, project, service, language and contact cards respond with a soft spotlight and lift; small cards gain a restrained 3D tilt. The portrait border gently breathes. The design uses native CSS and JavaScript only, throttles spotlight measurements to animation frames, and pauses the cursor trail when stationary. Cursor and hover motion are suppressed for touch pointers, reduced-motion settings and printed resumes. Visible keyboard focus remains intact.
