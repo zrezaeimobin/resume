@@ -239,17 +239,6 @@ html[dir=rtl] .organization[dir=ltr],html[dir=rtl] .project-content h3{text-alig
   isolation:isolate;
   transition:transform .36s cubic-bezier(.2,.8,.2,1),border-color .3s ease,box-shadow .36s ease,background-color .3s ease;
 }
-:is(.experience-card,.project-card,.service-card,.language-panel,.iraq-feature,.marketing-feature,.contact-card,.platform-list li)::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  pointer-events:none;
-  z-index:3;
-  opacity:0;
-  background:radial-gradient(340px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(80,222,255,.25),rgba(0,192,255,.065) 48%,transparent 78%);
-  transition:opacity .3s ease;
-}
 :is(.experience-card,.project-card,.service-card,.language-panel,.iraq-feature,.marketing-feature,.contact-card,.platform-list li):focus-within{
   border-color:#7ee8ff;
   box-shadow:0 0 0 2px rgba(79,217,255,.2),0 14px 36px rgba(4,5,29,.24);
@@ -260,7 +249,6 @@ html[dir=rtl] .organization[dir=ltr],html[dir=rtl] .project-content h3{text-alig
     box-shadow:0 22px 50px rgba(5,5,28,.42),0 0 0 1px rgba(78,220,255,.29),0 0 35px rgba(0,192,255,.22);
     transform:translateY(-9px) scale(1.012);
   }
-  :is(.experience-card,.project-card,.service-card,.language-panel,.iraq-feature,.marketing-feature,.contact-card,.platform-list li):hover::after{opacity:1}
   :is(.experience-card,.project-card,.service-card).fx-tilt:hover{
     transform:perspective(950px) translateY(-9px) scale(1.012) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));
   }
