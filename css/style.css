@@ -332,3 +332,27 @@ html[dir=rtl] .organization[dir=ltr],html[dir=rtl] .project-content h3{text-alig
   .motion-card,.motion-card:hover,.motion-card:focus-within{transform:none!important;box-shadow:none}
   .motion-card::after,.project-visual::after{display:none!important}
 }
+
+
+/* More legible interactive states after live visual review. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .motion-card:hover{
+    border-color:rgba(97,227,255,.95);
+    box-shadow:0 20px 50px rgba(2,5,28,.38),0 0 0 1px rgba(97,227,255,.22),0 0 38px rgba(0,192,255,.24);
+    transform:translateY(-8px);
+  }
+  .motion-card.tilt-effect:hover{--card-lift:-8px}
+  .motion-card::after{
+    background:radial-gradient(370px circle at var(--spot-x,50%) var(--spot-y,50%),rgba(28,208,255,.31),rgba(28,208,255,.09) 42%,transparent 73%);
+  }
+  .project-visual::after{
+    background:radial-gradient(300px circle at var(--spot-x,50%) var(--spot-y,50%),rgba(97,227,255,.38),transparent 74%);
+  }
+  .project-card:hover .project-wordmark{transform:translateY(-6px)}
+  .service-card:hover .service-icon{transform:translateY(-6px) rotate(-4deg);box-shadow:0 12px 28px rgba(0,192,255,.36)}
+  .experience-card:hover:before{box-shadow:0 0 18px rgba(0,192,255,.75)}
+  .cursor-inner{width:8px;height:8px;margin:-4px 0 0 -4px;background:#a8efff;box-shadow:0 0 12px 2px rgba(0,192,255,.58)}
+  .cursor-inner.cursor-hover{width:10px;height:10px;margin:-5px 0 0 -5px;box-shadow:0 0 19px 3px rgba(0,192,255,.8)}
+  .cursor-outer{width:46px;height:46px;margin:-23px 0 0 -23px;border:2px solid rgba(125,235,255,.96);opacity:.96;box-shadow:0 0 0 4px rgba(0,192,255,.1),0 0 24px rgba(0,192,255,.3)}
+  .cursor-outer.cursor-hover{width:72px;height:72px;margin:-36px 0 0 -36px;opacity:1;box-shadow:0 0 0 5px rgba(0,192,255,.1),0 0 32px rgba(0,192,255,.4)}
+}
