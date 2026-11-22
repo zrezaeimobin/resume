@@ -178,20 +178,55 @@
     document.querySelectorAll("main>section[id]").forEach(section => observer.observe(section));
   }
 
-  // Foliox magic cursor: a cyan ring follows the mouse and expands over controls.
+  // Enhanced Foliox cursor: an easing cyan halo trails the pointer on desktop.
   // Touch, pen and reduced-motion input keep the regular system pointer.
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
   const cursorInner = document.querySelector(".cursor-inner");
   const cursorOuter = document.querySelector(".cursor-outer");
-  const tiltElements = document.querySelectorAll(".portrait-frame, .service-card, .project-visual");
+  // Motion is enabled only on fine-pointer devices without reduced-motion preferences.
+  const motionCards = document.querySelectorAll(
+    ".experience-card, .project-card, .service-card, .language-panel, .iraq-feature, .marketing-feature, .contact-card, .platform-list li"
+  );
+  motionCards.forEach(card => card.classList.add("motion-card"));
+  const tiltElements = document.querySelectorAll(".portrait-frame, .service-card, .project-card");
   let cursorFrame = 0;
   let cursorX = 0;
   let cursorY = 0;
+  let trailX = 0;
+  let trailY = 0;
+  let trailReady = false;
+  let spotlightFrame = 0;
+  let spotlightTarget = null;
+  let spotlightClientX = 0;
+  let spotlightClientY = 0;
+
+  function paintSpotlight() {
+    spotlightFrame = 0;
+    if (!spotlightTarget) return;
+    const bounds = spotlightTarget.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+    const x = Math.max(0, Math.min(100, (spotlightClientX - bounds.left) / bounds.width * 100));
+    const y = Math.max(0, Math.min(100, (spotlightClientY - bounds.top) / bounds.height * 100));
+    spotlightTarget.style.setProperty("--spot-x", x + "%");
+    spotlightTarget.style.setProperty("--spot-y", y + "%");
+  }
+
+  function animateCursorTrail() {
+    cursorFrame = 0;
+    trailX += (cursorX - trailX) * 0.20;
+    trailY += (cursorY - trailY) * 0.20;
+    cursorOuter.style.transform = `translate3d(${trailX}px, ${trailY}px, 0)`;
+    // Sleep when stationary, rather than keeping the animation loop alive.
+    if (Math.abs(cursorX - trailX) > 0.3 || Math.abs(cursorY - trailY) > 0.3) {
+      cursorFrame = requestAnimationFrame(animateCursorTrail);
+    }
+  }
 
   function hideCursor() {
     root.classList.remove("cursor-visible");
     if (cursorFrame) cancelAnimationFrame(cursorFrame);
     cursorFrame = 0;
+    trailReady = false;
     cursorInner.classList.remove("cursor-hover");
     cursorOuter.classList.remove("cursor-hover");
   }
@@ -203,6 +238,9 @@
 
   function resetPointerEffects() {
     hideCursor();
+    if (spotlightFrame) cancelAnimationFrame(spotlightFrame);
+    spotlightFrame = 0;
+    spotlightTarget = null;
     tiltElements.forEach(resetTilt);
   }
 
@@ -213,17 +251,27 @@
     }
     cursorX = event.clientX;
     cursorY = event.clientY;
-    const hovered = Boolean(event.target.closest("a, button, [role='button'], .cursor-pointer"));
+    const hovered = Boolean(event.target.closest("a, button, [role='button'], .cursor-pointer, .motion-card"));
     cursorInner.classList.toggle("cursor-hover", hovered);
     cursorOuter.classList.toggle("cursor-hover", hovered);
-    if (cursorFrame) return;
-    cursorFrame = requestAnimationFrame(() => {
-      cursorFrame = 0;
-      const position = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
-      cursorInner.style.transform = position;
-      cursorOuter.style.transform = position;
-      root.classList.add("cursor-visible");
-    });
+    // The tiny dot tracks immediately; the outer halo eases toward it.
+    cursorInner.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+    if (!trailReady) {
+      trailX = cursorX;
+      trailY = cursorY;
+      trailReady = true;
+      cursorOuter.style.transform = `translate3d(${trailX}px, ${trailY}px, 0)`;
+    }
+    if (!cursorFrame) cursorFrame = requestAnimationFrame(animateCursorTrail);
+    root.classList.add("cursor-visible");
+
+    // Limit position measurements to one animation frame per card update.
+    spotlightTarget = event.target.closest(".motion-card");
+    if (spotlightTarget) {
+      spotlightClientX = event.clientX;
+      spotlightClientY = event.clientY;
+      if (!spotlightFrame) spotlightFrame = requestAnimationFrame(paintSpotlight);
+    }
   }, { passive: true });
   document.addEventListener("pointerout", event => { if (!event.relatedTarget) hideCursor(); });
   document.addEventListener("pointercancel", resetPointerEffects);
@@ -233,7 +281,7 @@
   finePointer.addEventListener("change", resetPointerEffects);
   reducedMotion.addEventListener("change", resetPointerEffects);
 
-  // The original theme's four-degree hover tilt, without its jQuery dependency.
+  // A restrained three-degree card tilt, without extra dependencies.
   tiltElements.forEach(element => {
     element.classList.add("tilt-effect");
     element.addEventListener("pointermove", event => {
@@ -241,8 +289,8 @@
       const bounds = element.getBoundingClientRect();
       const x = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1));
       const y = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1));
-      element.style.setProperty("--tilt-x", `${-y * 4}deg`);
-      element.style.setProperty("--tilt-y", `${x * 4}deg`);
+      element.style.setProperty("--tilt-x", `${-y * 3}deg`);
+      element.style.setProperty("--tilt-y", `${x * 3}deg`);
     }, { passive: true });
     element.addEventListener("pointerleave", () => resetTilt(element));
     element.addEventListener("focusin", () => resetTilt(element));
